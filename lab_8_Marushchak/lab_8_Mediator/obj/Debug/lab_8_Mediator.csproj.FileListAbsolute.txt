@@ -1,0 +1,6 @@
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Mediator\bin\Debug\lab_8_Mediator.exe
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Mediator\bin\Debug\lab_8_Mediator.pdb
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Mediator\obj\Debug\lab_8_Mediator.csproj.AssemblyReference.cache
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Mediator\obj\Debug\lab_8_Mediator.csproj.CoreCompileInputs.cache
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Mediator\obj\Debug\lab_8_Mediator.exe
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Mediator\obj\Debug\lab_8_Mediator.pdb

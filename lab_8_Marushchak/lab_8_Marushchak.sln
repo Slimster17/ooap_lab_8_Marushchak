@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_8_Marushchak_Iterator", "lab_8_Marushchak_Iterator\lab_8_Marushchak_Iterator.csproj", "{ACCD138E-AFCD-49FF-BCE9-0CE0C665BA7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab_8_Mediator", "lab_8_Mediator\lab_8_Mediator.csproj", "{DD19DDF6-74BB-4587-B1C0-71D9D74153CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACCD138E-AFCD-49FF-BCE9-0CE0C665BA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCD138E-AFCD-49FF-BCE9-0CE0C665BA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCD138E-AFCD-49FF-BCE9-0CE0C665BA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCD138E-AFCD-49FF-BCE9-0CE0C665BA7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD19DDF6-74BB-4587-B1C0-71D9D74153CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD19DDF6-74BB-4587-B1C0-71D9D74153CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD19DDF6-74BB-4587-B1C0-71D9D74153CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD19DDF6-74BB-4587-B1C0-71D9D74153CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

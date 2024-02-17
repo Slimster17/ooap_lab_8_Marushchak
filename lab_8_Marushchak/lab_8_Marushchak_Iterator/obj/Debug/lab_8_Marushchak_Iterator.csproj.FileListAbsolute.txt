@@ -1,0 +1,6 @@
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Marushchak_Iterator\bin\Debug\lab_8_Marushchak_Iterator.exe
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Marushchak_Iterator\bin\Debug\lab_8_Marushchak_Iterator.pdb
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Marushchak_Iterator\obj\Debug\lab_8_Marushchak_Iterator.csproj.AssemblyReference.cache
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Marushchak_Iterator\obj\Debug\lab_8_Marushchak_Iterator.csproj.CoreCompileInputs.cache
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Marushchak_Iterator\obj\Debug\lab_8_Marushchak_Iterator.exe
+D:\univer\2 kurs\ooap\lab_8_Marushchak\lab_8_Marushchak\lab_8_Marushchak_Iterator\obj\Debug\lab_8_Marushchak_Iterator.pdb

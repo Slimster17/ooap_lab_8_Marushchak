@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace lab_8_Marushchak
 {
-    class Employee
+    abstract class Employee
     {
         public string Name { get; set; }
         public double Salary { get; set; }
@@ -42,33 +43,91 @@ namespace lab_8_Marushchak
         }
     }
 
-    class EmployeeIterator
+ class EmployeeSalaryComparer : IComparer<Employee>
     {
-        private List<Employee> _employees;
-        private int _currentIndex;
-
-        public EmployeeIterator(List<Employee> employees)
+        public int Compare(Employee x, Employee y)
         {
-            _employees = employees;
-            _employees.Sort((emp1,emp2) => emp1.Salary.CompareTo(emp2.Salary));
-            _currentIndex = 0;
+            return x.Salary.CompareTo(y.Salary);
+        }
+    }
+
+    abstract class Iterator : IEnumerable<Employee>
+    {
+        public abstract Employee CurrentItem();
+        public abstract bool MoveNext();
+
+        public abstract IEnumerator<Employee> GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+    }
+    
+    abstract class Aggregate
+    {
+        public abstract Iterator CreateIterator();
+    }
+
+    class ConcreteAggregate : Aggregate
+    {
+        private List<Employee> _items = new List<Employee>();
+
+        public override Iterator CreateIterator()
+        {
+            return new ConcreteIterator(this);
         }
 
-        public bool HasNext()
+        public int Count
         {
-            return _currentIndex < _employees.Count;
+            get { return _items.Count; }
         }
 
-        public Employee Next()
+        public Employee this[int index]
         {
-            if (!HasNext())
+            get { return _items[index]; }
+            set { _items.Insert(index, value); }
+        }
+
+        public void AddEmployee(Employee employee)
+        {
+            _items.Add(employee);
+        }
+
+        public void SortBySalary()
+        {
+            _items.Sort(new EmployeeSalaryComparer());
+        }
+    }
+
+    class ConcreteIterator : Iterator
+    {
+        private ConcreteAggregate _aggregate;
+        private int _current;
+
+        public ConcreteIterator(ConcreteAggregate aggregate)
+        {
+            this._aggregate = aggregate;
+            _current = -1;
+        }
+        
+        public override bool MoveNext()
+        {
+            _current++;
+            return _current < _aggregate.Count;
+        }
+        
+        public override Employee CurrentItem()
+        {
+            return _aggregate[_current];
+        }
+
+        public override IEnumerator<Employee> GetEnumerator()
+        {
+            for (int i = 0; i < _aggregate.Count; i++)
             {
-                throw new InvalidOperationException("No more elements in the collection");
+                yield return _aggregate[i];
             }
-
-            Employee nextEmployee = _employees[_currentIndex];
-            _currentIndex++;
-            return nextEmployee;
         }
     }
 
@@ -76,21 +135,36 @@ namespace lab_8_Marushchak
     {
         public static void Main(string[] args)
         {
-            List<Employee> employees = new List<Employee>
-            {
-                new SelfEmployee("Ivan", 1700),
-                new SelfEmployee("Taras", 1250),
-                new SalariedEmployee("Mykola", 3500),
-                new UnemployedEmployee("Petro")
-            };
+            ConcreteAggregate a = new ConcreteAggregate();
+            a.AddEmployee(new SelfEmployee("Ivan", 1700));
+            a.AddEmployee(new SelfEmployee("Taras", 1250));
+            a.AddEmployee(new SalariedEmployee("Mykola", 3500));
+            a.AddEmployee(new UnemployedEmployee("Petro"));
+            
 
-            EmployeeIterator employeeIterator = new EmployeeIterator(employees);
+            Iterator i = a.CreateIterator();
 
-            while (employeeIterator.HasNext())
+            while (i.MoveNext())
             {
-                Employee employee = employeeIterator.Next();
-                Console.WriteLine($"Name: {employee.Name}; Salary: {employee.Salary}; Status: {employee.Status}");
+                Employee employee = i.CurrentItem();
+                Console.WriteLine($"Name: {employee.Name}; " +
+                                  $"Salary: {employee.Salary}; " +
+                                  $"Status: {employee.Status}");
             }
+
+            Console.WriteLine(new string('*', 50));
+            
+            a.SortBySalary();
+            
+
+            foreach (Employee employee in i)
+            {
+                Console.WriteLine($"Name: {employee.Name}; " +
+                                  $"Salary: {employee.Salary}; " +
+                                  $"Status: {employee.Status}");
+            }
+
+            Console.ReadKey();
         }
     }
 }
